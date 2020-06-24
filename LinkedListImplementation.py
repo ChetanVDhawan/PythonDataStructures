@@ -44,11 +44,33 @@ class LinkedList:
         temp = self.start
         if temp is None:
             print("There is no data")
+        if temp.data == fruit_name:
+            temp.next = temp.next.next
+            return
         while temp.next is not None:
             if temp.next.data == fruit_name:
                 temp.next = temp.next.next
-                break
+                return
             temp = temp.next
         print("Fruit Not Found")
 
-
+if __name__ == '__main__':
+    ll = LinkedList()
+    ll.insert_values(["banana","mango","grapes","orange"])
+    ll.printl()
+    print("----------------------Insert Apple---------------------------")
+    ll.insert_after_value("mango","apple") # insert apple after mango
+    ll.printl()
+    print("-----------------------Remove Orange--------------------------")
+    ll.remove_by_value("orange") # remove orange from linked list
+    ll.printl()
+    print("------------------------Remove Figs-------------------------")
+    ll.remove_by_value("figs")
+    ll.printl()
+    print("------------------------Remove Banana, Mango, Apple , Grapes-------------------------")
+    ll.remove_by_value("banana")
+    ll.remove_by_value("mango")
+    ll.remove_by_value("apple")
+    ll.remove_by_value("grapes")
+    ll.printl()
+    print("---------------------END----------------------------")
