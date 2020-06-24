@@ -44,8 +44,8 @@ class LinkedList:
         temp = self.start
         if temp is None:
             print("There is no data")
-        if temp.data == fruit_name:
-            temp.next = temp.next.next
+        if self.start.data == fruit_name:
+            self.start = temp.next
             return
         while temp.next is not None:
             if temp.next.data == fruit_name:
